@@ -57,6 +57,7 @@ class LibE57FormatConan(ConanFile):
     def generate(self):
         tc = CMakeToolchain(self)
         tc.variables["USING_STATIC_XERCES"] = not self.dependencies["xerces-c"].options.shared
+        tc.variables["E57_BUILD_TEST"] = False
         tc.generate()
         deps = CMakeDeps(self)
         deps.generate()
